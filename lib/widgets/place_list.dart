@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:traveloca/model/place.dart';
+import 'package:traveloca/screens/place_detail.dart';
 
 class PlaceList extends StatelessWidget {
   PlaceList({super.key, required this.placeList});
@@ -17,10 +18,15 @@ class PlaceList extends StatelessWidget {
       );
     
     }
-    return ListView.builder(itemBuilder: (ctx, index) => ListTile(
+    return ListView.builder(
+      itemCount: placeList.length,
+      itemBuilder: (ctx, index) => ListTile(
       title: Text(placeList[index].title, style: Theme.of(context).textTheme.titleMedium!.copyWith(
         color: Theme.of(context).colorScheme.onBackground,
       ),),
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute(builder:(ctx) => PlaceDetailScreen(place: placeList[index],),),);
+      },
     ),
     );
   }
