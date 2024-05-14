@@ -19,7 +19,11 @@ class FlacesScreen extends ConsumerWidget {
           }, icon: Icon(Icons.add),),
         ],),
 
-        body: PlaceList(placeList: places,),
+        body: Padding(
+          padding: EdgeInsets.all(10),
+          child: PlaceList(
+            
+            placeList: places,)),
     );
   }
 }
